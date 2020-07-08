@@ -45,5 +45,17 @@ class Main extends PluginBase {
 
 		return true;
 	}
+		if($command->getName() == "flashcore") {
+			$sender->sendMessage("§l§gFlash§fCore §r§f1.0.1 by David Flash");
+			$sender->sendMessage("§fA Highly Customizable LobbyCore Plugin.");
+			$sender->sendMessage("");
+			$sender->sendMessage("§fEverything can be edited in config.yml that can be found");
+			$sender->sendMessage("§fin FlashCore folder in plugin_data or plugins.");
+			$sender->sendMessage("");
+			$sender->sendMessage("§fThank you for using §gFlash§fCore plugin!")
+
+
+		return true;
+	}
   }
 }
