@@ -57,5 +57,18 @@ class Main extends PluginBase {
 
 		return true;
 	}
+		if($command->getName() == "fly") {
+			$sender->sendMessage("§l§f[§gFlash§fCore] §aFly Enabled!");
+			$sender->setAllowFlight(true);
+
+		return true;
+	}
+		if($command->getName() == "nofly") {
+			$sender->sendMessage("§l§f[§gFlash§fCore] §aFly Disabled!");
+			$sender->setAllowFlight(false);
+
+		return true;
+	}
+
   }
 }

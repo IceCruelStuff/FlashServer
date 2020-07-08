@@ -1,6 +1,6 @@
 ---
-name: LobbyCore
-version: 1.0.1
+name: FlashCore
+version: 1.0.2
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
 
@@ -11,4 +11,8 @@ commands:
      description: Teleports you to the main hub
   flashcore:
      description: FlashCore Plugin Help
+  fly:
+     description: Enables Fly
+  nofly:
+     description: Disables Fly
 ...
