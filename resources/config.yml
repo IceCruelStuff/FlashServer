@@ -1,0 +1,17 @@
+# LobbyCore by David Flash Configuration File
+# Version 1.0.0
+
+# Custom Settings
+
+# The world where the Lobby is (NOTICE! The world needs to be loaded!)
+world: "Lobby"
+
+# Message that will be sent to players chat
+message: "§f[§gFlash§fCore] §aYou were teleported to §fLobby!"
+
+# Messages that will appear on players screen
+title: "§cTeleporting.."
+subtitle: "§fTo Hub"
+
+# What gamemode will be applied when you do /hub (NEEDS TO BE NUMERIC)
+gamemode: 1
