@@ -1,9 +1,8 @@
 ---
-name: LobbyCore
-version: 1.0.2
+name: FlashCore
+version: 1.0.3
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
-
 commands:
   lobby:
      description: Teleports you to the main hub
@@ -11,4 +10,11 @@ commands:
      description: Teleports you to the main hub
   flashcore:
      description: FlashCore Plugin Help
+  fly:
+     permission: fc.fly
+     description: "Allow you to fly or a person."
+permissions:
+   fc.fly:
+      description: "/fly permission"
+      default: op 
 ...

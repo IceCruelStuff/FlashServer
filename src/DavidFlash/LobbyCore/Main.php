@@ -17,12 +17,16 @@ use pocketmine\entity\EffectInstance;
 
 class Main extends PluginBase {
 
-	public function onEnable() {
+	public function onEnable() { 
 		$this->getLogger()->info("Plugin Loaded!");
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
 		if($command->getName() == "hub") {
+			if(!$sender instanceof Player){
+				$sender->sendMessage("§cThis works only in-game");
+				return true;
+			}
 			$sender->sendMessage($this->getConfig()->get("message"));
 			$sender->teleport($this->getServer()->getLevelByName($this->getConfig()->get("world"))->getSafeSpawn());
 			$sender->setGamemode($this->getConfig()->get("gamemode"));
@@ -33,8 +37,11 @@ class Main extends PluginBase {
 
 		
 		return true;
-	}
-		if($command->getName() == "lobby") {
+	}elseif($command->getName() == "lobby") {
+		if(!$sender instanceof Player){
+			$sender->sendMessage("§cThis works only in-game");
+			return true;
+		}
 			$sender->sendMessage($this->getConfig()->get("message"));
 			$sender->teleport($this->getServer()->getLevelByName($this->getConfig()->get("world"))->getSafeSpawn());
 			$sender->setGamemode($this->getConfig()->get("gamemode"));
@@ -44,8 +51,7 @@ class Main extends PluginBase {
 			$sender->addSubTitle($this->getConfig()->get("subtitle"));
 
 		return true;
-	}
-		if($command->getName() == "flashcore") {
+	}elseif($command->getName() == "flashcore") {
 			$sender->sendMessage("§l§gFlash§fCore §r§f1.0.1 by David Flash");
 			$sender->sendMessage("§fA Highly Customizable LobbyCore Plugin.");
 			$sender->sendMessage("");
@@ -56,6 +62,46 @@ class Main extends PluginBase {
 
 
 		return true;
+	}elseif($command->getName() === "fly"){
+		if(!$sender instanceof Player){
+			$sender->sendMessage("§cThis works only in-game");
+			return true;
+		}
+		if(!$sender->hasPermission('fc.fly')){
+			$sender->sendMessage('§cYou don\' have permission to use this command');
+			return true;
+		}
+		if(!isset($args[0])){ 
+			if($sender->getAllowFlight() === true){
+				$sender->setAllowFlight(false);
+				$sender->setFlying(false);
+				$sender->sendMessage("§l§f[§gFlash§fCore] §cYour fly is now disabled.");
+				return true;
+			}
+			$sender->setAllowFlight(true);
+			$sender->setFlying(true);
+			$sender->sendMessage("§l§f[§gFlash§fCore] §aYour fly is now enabled.");
+			return true;
+		}else{
+			$player = $this->getServer()->getPlayer($args[0]);
+			if($player != null){
+				if($player->getAllowFlight() === true){
+					$player->setAllowFlight(false);
+					$player->setFlying(false);
+					$player->sendMessage("§l§f[§gFlash§fCore] §cYour fly is now disabled.");
+					$sender->sendMessage("§l§f[§gFlash§fCore] §c" . $player->getName() . "'s fly is now disabled.");
+					return true;
+				}
+				$player->setAllowFlight(true);
+				$player->setFlying(true);
+				$player->sendMessage("§l§f[§gFlash§fCore] §aYour fly is now enabled.");
+				$sender->sendMessage("§l§f[§gFlash§fCore] §a" . $player->getName() . "'s fly is now enabled.");
+				return true;
+			}else{
+				$sender->sendMessage('§l§f[§gFlash§fCore] §cPlayer not found.');
+				return true;
+			}
+		} 
 	}
   }
 }
