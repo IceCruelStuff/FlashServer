@@ -1,6 +1,10 @@
 ---
 name: FlashCore
+<<<<<<< Updated upstream
 version: 1.0.2
+=======
+version: 1.0.4
+>>>>>>> Stashed changes
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
 
@@ -12,7 +16,19 @@ commands:
   flashcore:
      description: FlashCore Plugin Help
   fly:
+<<<<<<< Updated upstream
      description: Enables Fly
   nofly:
      description: Disables Fly
+=======
+     permission: fc.fly
+     description: "Allow you to fly or a person."
+  vanish:
+     permission: fc.vanish
+     description: Enables Vanish
+permissions:
+   fc.fly:
+      description: "/fly permission"
+      default: op 
+>>>>>>> Stashed changes
 ...
