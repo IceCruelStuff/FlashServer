@@ -1,6 +1,6 @@
 ---
 name: FlashCore
-version: 1.0.3
+version: 1.0.4
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
 commands:
@@ -13,6 +13,9 @@ commands:
   fly:
      permission: fc.fly
      description: "Allow you to fly or a person."
+  vanish:
+     permission: fc.vanish
+     description: Enables Vanish
 permissions:
    fc.fly:
       description: "/fly permission"

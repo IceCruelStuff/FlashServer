@@ -1,7 +1,11 @@
 # LobbyCore by David Flash Configuration File
-# Version 1.0.0
+# Version 1.0.4
 
 # Custom Settings
+
+
+# LOBBY 
+
 
 # The world where the Lobby is (NOTICE! The world needs to be loaded!)
 world: "Lobby"
@@ -14,4 +18,10 @@ title: "§cTeleporting.."
 subtitle: "§fTo Hub"
 
 # What gamemode will be applied when you do /hub (NEEDS TO BE NUMERIC)
-gamemode: 1
+gamemode: 2
+
+
+# VANISH 
+
+# What message should be sent on enable/disable
+vanish-on: "Vanish Enabled"
