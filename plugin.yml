@@ -12,10 +12,10 @@ commands:
      description: FlashCore Plugin Help
   fly:
      permission: fc.fly
-     description: "Allow you to fly or a person."
+     description: Allow you to fly or a person to fly
   vanish:
      permission: fc.vanish
-     description: Enables Vanish
+     description: Enables Vanish for you or other people
 permissions:
    fc.fly:
       description: "/fly permission"
