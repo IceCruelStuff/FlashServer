@@ -1,6 +1,6 @@
 ---
 name: FlashCore
-version: 1.0.4
+version: 1.0.5
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
 commands:
@@ -16,8 +16,23 @@ commands:
   vanish:
      permission: fc.vanish
      description: Enables Vanish for you or other people
+  freeze:
+     permission: fc.freeze
+     description: Freeze player when he's not kind
+  haf:
+     permission: fc.haf
+     description: Fully restores your hunger and heal
 permissions:
    fc.fly:
       description: "/fly permission"
       default: op 
+   fc.vanish:
+      description: "/vanish permission"
+      default: op
+   fc.freeze:
+      description: "/freeze permission"
+      default: op
+   fc.haf:
+      description: "/haf permission"
+      default: op
 ...
