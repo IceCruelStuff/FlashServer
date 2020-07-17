@@ -15,6 +15,7 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\scheduler\Task;
 use pocketmine\scheduler\SchedulerTask;
+use jojoe77777\FormAPI;
 
 class Main extends PluginBase {
 
@@ -56,6 +57,27 @@ class Main extends PluginBase {
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
+		if($command->getName() == "infoui") {
+			if(!$sender instanceof Player){
+				$sender->sendMessage("§cThis works only in-game");
+				return true;
+			}
+			if($this->getConfig()->get("enabled") === false){
+				$sender->sendMessage("§cThis feature is disabled");
+				return true;
+			}
+			$form = $this->getServer()->getPluginManager()->getPlugin("FormAPI")->createSimpleForm(function (Player $sender, array $data) {
+				switch($data) {
+					case 0:
+						break;
+				}
+			});
+			$form->setTitle("Server Info");
+			$form->setContent($this->getConfig()->get("text"));
+			$form->addButton("OK!");
+			$form->sendToPlayer($sender);
+		}
+
 		if($command->getName() == "hub") {
 			if(!$sender instanceof Player){
 				$sender->sendMessage("§cThis works only in-game");
@@ -121,7 +143,7 @@ class Main extends PluginBase {
 
 		return true;
 	}elseif($command->getName() == "flashcore") {
-			$sender->sendMessage("§l§gFlash§fCore §r§f1.0.3 by David Flash");
+			$sender->sendMessage("§l§gFlash§fCore §r§f1.0.5 by David Flash");
 			$sender->sendMessage("§fA Highly Customizable LobbyCore Plugin.");
 			$sender->sendMessage("");
 			$sender->sendMessage("§fEverything can be edited in config.yml that can be found");
@@ -131,6 +153,80 @@ class Main extends PluginBase {
 
 
 		return true;
+	
+	}elseif($command->getName() == "freeze"){
+		if(!$sender instanceof Player){
+			$sender->sendMessage("§cThis works only in-game");
+			return true;
+		}
+		if(!$sender->hasPermission('fc.freeze')){
+			$sender->sendMessage('§cYou don\' have permission to use this command');
+			return true;
+		}
+		if(!isset($args[0])){
+			if($sender->IsImmobile() === true){
+				$sender->setImmobile(false);
+				$sender->removeAllEffects();
+				$sender->sendMessage("§l§f[§gFlash§fCore] §aYou are now unfrozen!");
+				return true;
+			}
+			$sender->setImmobile(true);
+			$sender->addEffect(new EffectInstance(Effect::getEffect(Effect::BLINDNESS), 9999999, 5, false));
+			$sender->addTitle("§cYOU ARE NOW FROZEN", "§7Seems like you're not kind!");
+			$sender->sendMessage("§l§f[§gFlash§fCore] §cYou are now frozen!");
+			return true;
+		}else{
+			$player = $this->getServer()->getPlayer($args[0]);
+			if($player != null){
+				if($player->IsImmobile() === true){
+					$player->setImmobile(false);
+					$player->removeAllEffects();
+					$player->addTitle("§aYOU ARE NOW UNFROZEN", "§7Good boy");
+					$player->sendMessage("§l§f[§gFlash§fCore] §aYou are now unfrozen!!");
+					$sender->sendMessage("§l§f[§gFlash§fCore] §a" . $player->getName() . " is now frozen!");
+					return true;
+				}
+				$player->setImmobile(true);
+				$player->addEffect(new EffectInstance(Effect::getEffect(Effect::BLINDNESS), 9999999, 5, false));
+				$player->addTitle("§cYOU ARE NOW FROZEN", "§7Seems like you're not kind!");
+				$player->sendMessage("§l§f[§gFlash§fCore] §cYou are now frozen!");
+				$sender->sendMessage("§l§f[§gFlash§fCore] §c" . $player->getName() . " has been frozen!");
+				return true;
+			}else{
+				$sender->sendMessage('§l§f[§gFlash§fCore] §cPlayer not found.');
+				return true;
+			}
+		return true;
+		}
+	
+	}elseif($command->getName() == "haf"){
+		if(!$sender instanceof Player){
+			$sender->sendMessage("§cThis works only in-game");
+			return true;
+		}
+		if(!$sender->hasPermission('fc.haf')){
+			$sender->sendMessage('§cYou don\' have permission to use this command');
+			return true;
+		}
+		if(!isset($args[0])){
+			$sender->setHealth($sender->getMaxHealth());
+			$sender->setFood(20);
+			$sender->sendMessage("§l§f[§gFlash§fCore] §aYou are now fully restored!");
+			return true;
+		}else{
+			$player = $this->getServer()->getPlayer($args[0]);
+			if($player != null){
+				$player->setHealth($sender->getMaxHealth());
+				$player->setFood(20);
+				$player->sendMessage("§l§f[§gFlash§fCore] §aYou are now fully restored!");
+				$sender->sendMessage("§l§f[§gFlash§fCore] §a" . $player->getName() . " is now fully restored!");
+					return true;
+			}else{
+				$sender->sendMessage('§l§f[§gFlash§fCore] §cPlayer not found.');
+				return true;
+			}
+		return true;
+		}
 	
 	}elseif($command->getName() == "vanish"){
 		if(!$sender instanceof Player){

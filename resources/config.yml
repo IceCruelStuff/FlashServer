@@ -1,5 +1,5 @@
 # LobbyCore by David Flash Configuration File
-# Version 1.0.4
+# Version 1.0.6
 
 # Custom Settings
 
@@ -21,7 +21,12 @@ subtitle: "§fTo Hub"
 gamemode: 2
 
 
-# VANISH 
+# INFOUI (Experimental)
 
-# What message should be sent on enable/disable
-vanish-on: "Vanish Enabled"
+# Do you want to enable this feature? (true / false)
+
+enabled: false
+
+# What message should appear in InfoUI (Use \n for line break)
+
+text: "Put what text you want here \n in config.yml!"
