@@ -1,5 +1,5 @@
 # LobbyCore by David Flash Configuration File
-# Version 1.0.4
+# Version 1.0.6
 
 # Custom Settings
 
@@ -18,4 +18,19 @@ title: "§cTeleporting.."
 subtitle: "§fTo Hub"
 
 # What gamemode will be applied when you do /hub (NEEDS TO BE NUMERIC)
+<<<<<<< Updated upstream
 gamemode: 2
+=======
+gamemode: 2
+
+
+# INFOUI (Experimental)
+
+# Do you want to enable this feature? (true / false)
+
+enabled: false
+
+# What message should appear in InfoUI (Use \n for line break)
+
+text: "Put what text you want here \n in config.yml!"
+>>>>>>> Stashed changes

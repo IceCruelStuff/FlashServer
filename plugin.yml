@@ -1,6 +1,7 @@
 ---
 name: FlashCore
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 version: 1.0.2
 =======
 version: 1.0.4
@@ -8,6 +9,15 @@ version: 1.0.4
 main: DavidFlash\LobbyCore\Main
 api: 3.14.0
 
+=======
+version: 1.0.6
+main: DavidFlash\LobbyCore\Main
+api: 3.14.0
+depends:
+ - FormAPI
+protocol:
+- 407
+>>>>>>> Stashed changes
 commands:
   lobby:
      description: Teleports you to the main hub
@@ -25,10 +35,34 @@ commands:
      description: "Allow you to fly or a person."
   vanish:
      permission: fc.vanish
+<<<<<<< Updated upstream
      description: Enables Vanish
+=======
+     description: Enables Vanish for you or other people
+  freeze:
+     permission: fc.freeze
+     description: Freeze player when he's not kind
+  haf:
+     permission: fc.haf
+     description: Fully restores your hunger and heal
+  infoui:
+     description: "Opens Server InfoUI"
+>>>>>>> Stashed changes
 permissions:
    fc.fly:
       description: "/fly permission"
       default: op 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+   fc.vanish:
+      description: "/vanish permission"
+      default: op
+   fc.freeze:
+      description: "/freeze permission"
+      default: op
+   fc.haf:
+      description: "/haf permission"
+      default: op
 >>>>>>> Stashed changes
 ...
