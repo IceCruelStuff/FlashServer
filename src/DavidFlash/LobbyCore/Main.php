@@ -74,7 +74,7 @@ class Main extends PluginBase {
 			});
 			$form->setTitle("Server Info");
 			$form->setContent($this->getConfig()->get("text"));
-			$form->addButton("OK!");
+			$form->addButton("OK");
 			$form->sendToPlayer($sender);
 		}
 
