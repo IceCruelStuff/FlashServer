@@ -1,8 +1,8 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/DavidFlashCZ/FlashCore
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/DavidFlashCZ/FlashServer
 build-by-default: true
 branches:
 - master
 projects:
-  FlashCore:
+  FlashServer:
     path: ""
 ...
